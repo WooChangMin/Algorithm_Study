@@ -77,6 +77,18 @@ namespace DataStructure1
             }
             return default(T);
         }
+
+        public int FindIndex(Predicate<T> match)                      // FindIndex의 경우 해당 인덱스를 찾을경우 가장 빠른 index반환하고 해당 함수가 없을경우 -1 반환
+        {
+            for (int i = 0; i < size; i++)
+            {
+                if (match(items[i]))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
         public void Expasion()                                        // Add() 함수구현을 위해 필요한 Expasion 함수 구현 혹시나 리스트의 사이즈를 넘어가는 자료형 데이터가 들어왔을때 해당 리스트의 크기를 두배로 키우는 작업을 수행 후 기존의 item위치를 newitem으로 대체
         {
             int newCapacity = items.Length * 2;
