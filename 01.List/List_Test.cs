@@ -34,19 +34,30 @@ namespace DataStructure1
             }   
         }
 
-        public void Remove()
+        public bool Remove(T item)
         {
+            int index = IndexOf(item);
+            if (>= 0) 
+            {
+                RemoveAt(Array.IndexOf(items, item));
+                return true;
+            }
+            else
+                return false;
+        }
 
+        public int IndexOf(T item)
+        {
+            return Array.IndexOf(items, item);
         }
 
         public void RemoveAt(int index)
         {
-            if (size > index)
-            {
-                Array.Copy(items, index + 1, items, index, size - index);
-            }
-            else 
+            if (index < 0 || index >= size)
                 throw new IndexOutOfRangeException();
+            size--;
+            Array.Copy(items, index + 1, items, index, size - index);
+           
         }
 
         public void Expasion()                                     // Add() 함수구현을 위해 필요한 Expasion 함수 구현 혹시나 리스트의 사이즈를 넘어가는 자료형 데이터가 들어왔을때 해당 리스트의 크기를 두배로 키우는 작업을 수행 후 기존의 item위치를 newitem으로 대체
