@@ -6,31 +6,45 @@ using System.Threading.Tasks;
 
 namespace DataStructure
 {
-    enum Type { Int, Double, String, Float, Char}
-    internal class List
+    internal class List<T>
     {
-        public List(Type type, int Count)
+        private const int DefaultCapacity = 10;
+
+        private T[] items;
+        private int size;
+        
+        public List()
         {
-            switch (type)
+            this.items = new T[DefaultCapacity];
+            this.size = 0;
+        }
+
+        public void Add(T item)
+        {
+            if (size < items.Length)
             {
-                case Type.Int:
-                    int[] list = new int[Count];
-                    break;
-                case Type.Double:
-                    double[] list = new double[Count];
-                    break;
-                case Type.Float:
-                    int[] list = new int[Count];
-                    break;
-                case Type.String:
-                    int[] list = new int[Count];
-                    break;
-                case Type.Char:
-                    char[] list = new char[Count];
-                    break;
+                items[size++] = item;
+            }
+            else
+            {
+                Grow();
+                items[size++] = item;
+
             }
         }
 
 
+        public void Remove(T item)
+        {
+
+        }
+
+        private void Grow()
+        {
+            int newCapacity = items.Length * 2;
+            T[] newitems = new T[newCapacity];
+            Array.Copy(items, 0, newitems, 0, size);
+            items = newitems; 
+        }
     }
 }

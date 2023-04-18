@@ -58,6 +58,7 @@ namespace _01.List
 
         static void Main(string[] args)
         {
+            /*
             List<string> list = new List<string>();
 
             //list.Count
@@ -87,7 +88,9 @@ namespace _01.List
 
             string? findValue = list.Find(x => x.Contains('4'));
             int findIndex = list.FindIndex(x => x.Contains('1'));
-
+            */
+            DataStructure.List<string> list = new DataStructure.List<string>();
+            
         }
         // Array, ArrayList, List 차이?
         /* 셋다 자료형을 담아놓을수 있는 Collection의 역할을 하지만 
