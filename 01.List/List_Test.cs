@@ -120,5 +120,14 @@ namespace DataStructure1
             }
             else return true;
         }
+
+        public void Clear()                                           // Clear함수의경우 배열의 Clear함수를 가져와준후 size값을 0으로 초기화해 주어 리스트내에 값이 없다는것을 알려주어야 함.
+        {
+            if (size > 0)
+            {
+                Array.Clear(items, 0, size);
+                size = 0;
+            }
+        }
     }
 }
