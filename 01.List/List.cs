@@ -82,6 +82,31 @@ namespace DataStructure
         {
             return Array.IndexOf(items, item, 0, size);
         }
+
+        public T? Find(Predicate<T> match)
+        {
+            if (match == null)
+                throw new ArgumentNullException("match");
+
+            for (int i =  0;  i < size; i++)
+            {
+                if (match(items[i]))
+                    return items[i];
+            }
+
+            return default(T);
+        }
+
+        public int FindIndex(Predicate<T> match)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                if (match(items[i]))
+                    return i;
+            }
+
+            return -1;
+        }
         private void Grow()
         {
             int newCapacity = items.Length * 2;
