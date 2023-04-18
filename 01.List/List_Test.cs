@@ -111,5 +111,14 @@ namespace DataStructure1
             Array.Copy(items, 0, newitems, 0, size);
             items = newitems;
         }
+        //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+        public bool Contains(T item)                                  // Contains함수 의경우 해당 배열안에 포함되어 있을경우 true 반환 없을경우 false 반환하는 함수이므로 IndexOf 함수를 사용해서 해당 반환값이 -1일경우 false 반환 아닐경우 true 반환.
+        {
+            if (IndexOf(item) == -1)
+            {
+                return false;
+            }
+            else return true;
+        }
     }
 }
