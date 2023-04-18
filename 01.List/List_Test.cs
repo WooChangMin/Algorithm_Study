@@ -22,8 +22,23 @@ namespace DataStructure1
         {
             this.items = new T[DefaultCount];
             this.size = 0;
-        } 
-
+        }
+        
+        public T this[int index]                                      // indexer 구현 특정 index 값이 들어왔을경우 
+        {
+            get                                                       // index값이 들어왔을때 items[index] 값을 반환받을수 있고
+            {                                                         
+                if (index < 0 || index > size)                        // 예외처리구문
+                    throw new IndexOutOfRangeException();
+                return items[index];
+            }
+            set                                                       // 외부에서 해당 인덱스의 값을 변경해줄때도 예외처리구문과 함깨 값의 변경 -> return값은 존재x
+            {
+                if (index < 0 || index > size)
+                    throw new IndexOutOfRangeException();
+                items[index] = value;
+            }
+        }
 
         public void Add(T item)                                       // Add() 구현 만들어진 리스트의 사이즈가 들어온 아이템의 개수보다 큰경우 바로대입하고 후위증감연산자를 사용해서 인덱스를 하나씩 늘려가면서 해당위치에 추가해줌
         {
