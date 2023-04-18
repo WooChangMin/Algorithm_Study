@@ -9,11 +9,15 @@ namespace DataStructure1
 {
     internal class List<T>
     {
+
+        
         public int size;
         private const int DefaultCount = 20;
         private T[] items;
 
 
+        public int Capacity { get { return items.Length; } }          // Capacity의 경우 리스트의 크기를 바꾸지 않는 선에서 보유할수있는 최대량이므로 items.Length값을 넣어주는게맞고
+        public int Count { get { return size; } }                     // Count의 경우 현재 들어가있는 요소의 개수이므로 size 가 적합하다.
         public List()
         {
             this.items = new T[DefaultCount];
