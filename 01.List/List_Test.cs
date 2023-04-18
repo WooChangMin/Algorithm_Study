@@ -64,7 +64,20 @@ namespace DataStructure1
            
         }
 
-        public void Expasion()                                     // Add() 함수구현을 위해 필요한 Expasion 함수 구현 혹시나 리스트의 사이즈를 넘어가는 자료형 데이터가 들어왔을때 해당 리스트의 크기를 두배로 키우는 작업을 수행 후 기존의 item위치를 newitem으로 대체
+        public T? Find(Predicate<T> match)                            // Find함수 구현 특정 조건부에 맞는 경우가있는지 predicate대리자를 사용
+        {
+            if (match == null)                                        // match값이 null 일경우 예외 반환
+                throw new ArgumentNullException("match");
+            for (int i = 0; i < size; i++)                            // 그게 아닐경우 배열을 돌면서 해당 match의 값이 true인경우 item값을 리턴하고 종료
+            {
+                if (match(items[i]))
+                {
+                    return items[i];
+                }
+            }
+            return default(T);
+        }
+        public void Expasion()                                        // Add() 함수구현을 위해 필요한 Expasion 함수 구현 혹시나 리스트의 사이즈를 넘어가는 자료형 데이터가 들어왔을때 해당 리스트의 크기를 두배로 키우는 작업을 수행 후 기존의 item위치를 newitem으로 대체
         {
             int newCapacity = items.Length * 2;
             T[] newitems = new T[newCapacity];
