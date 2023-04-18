@@ -37,7 +37,7 @@ namespace DataStructure1
         public bool Remove(T item)
         {
             int index = IndexOf(item);
-            if (>= 0) 
+            if (index >= 0 ) 
             {
                 RemoveAt(Array.IndexOf(items, item));
                 return true;
