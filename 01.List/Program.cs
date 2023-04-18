@@ -29,6 +29,32 @@
 		 * 런타임 중 크기를 확장할 수 있는 배열기반의 자료구조
 		 * 배열요소의 갯수를 특정할 수 없는 경우 사용
 		 ******************************************************/
+
+        // <List의 사용> List<자료형> List이름 = new List<자료형>();
+        void List()
+        {
+            List<string> list = new List<string>();
+
+            // 배열 요소 삽입
+            list.Add("0번 데이터");
+            list.Add("1번 데이터");
+            list.Add("2번 데이터");
+
+            // 배열 요소 삭제
+            list.Remove("1번 데이터");
+
+            // 배열 요소 접근
+            list[0] = "데이터0";
+            string value = list[0];
+
+            // 배열 요소 탐색
+            string? findValue = list.Find(x => x.Contains('2'));
+            int findIndex = list.FindIndex(x => x.Contains('0'));
+        }
+        // <List의 시간복잡도>
+        // 접근		탐색		삽입		삭제
+        // O(1)		O(n)	O(n)	O(n)
+
         static void Main(string[] args)
         {
             
