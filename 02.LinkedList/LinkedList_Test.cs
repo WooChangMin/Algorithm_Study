@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,30 @@ namespace _Datastructure
         public LinkedListNode<T> tail;
         public int count;
 
+        public LinkedList()
+        {
+            this.count = 0;
+            this.head = null;
+            this.tail = null;
+        }
 
+        public void AddFirst(T value)
+        {
+            LinkedListNode<T> newNode = new LinkedListNode<T>(this, value);
+            
+            if (this != null)
+            {
+                head = newNode;
+                tail = newNode;
+            }
+            else
+            {
+                this.head.prev = newNode;
+                newNode.next = head;
+                head = newNode;
+            }
+            count++;
+        }
     }
 
     public class LinkedListNode<T>
