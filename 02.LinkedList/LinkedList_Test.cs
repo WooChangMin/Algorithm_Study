@@ -119,6 +119,7 @@ namespace _Datastructure
             }
             return null;                                                          // while문을 다돌았는데도 일치하는 값이 없으면 null반환
         }
+
         public void Remove(LinkedListNode<T> node)                                // Remove함수 구현 지워야할 노드값 받아옴
         {
             if(node == null)                                                      //노드가 null일때 예외발생
@@ -138,11 +139,20 @@ namespace _Datastructure
             count--;
         }
 
-        public void Remove(T value)
+        public bool Remove(T value)                                               // 값을 받는 Remove 함수 구현 
         {
-
+            LinkedListNode<T> findnode = Find(value);                             // Find함수를 사용하여 노드를 받아 findnode로 새로구현
+            if (findnode == null)                                                 // findnode 가  null 일경우 -> 찾지못했으므로 false 반환
+            {
+                return false;                                                     // false 반환
+            }
+            else
+            {                                                                     // 아닐경우 찾았으므로 findenode를 삭제후 true 반환후 count --
+                Remove(findnode);
+                return true;
+                count--;
+            }
         }
-
     }
 
     public class LinkedListNode<T>
