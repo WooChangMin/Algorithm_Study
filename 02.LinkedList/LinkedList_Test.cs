@@ -106,6 +106,29 @@ namespace _Datastructure
             }
             count++;                                                              // 숫자 1 올려줌
         }
+
+        public void Remove(LinkedListNode<T> node)
+        {
+
+        }
+
+        public void Remove(T value)
+        {
+
+        }
+
+        public LinkedListNode<T> Find(T value)                                    //Find 함수 만들어줌 비교해야할 value값을 매개변수로 받음.
+        {
+            EqualityComparer<T> comparer = EqualityComparer<T>.Default;           // 두값을 비교하기위한 비교클래스 인스턴스 생성.
+            LinkedListNode<T> target = head;                                      // terget값을 list의 헤드로 지정
+            while(target !=null)                                                  // target값이 null이아닐때까지 무한반복 -> list의 끝까지
+            {
+                if (comparer.Equals(value, target.Item) == true)                  // comparer내의 함수인equals를 사용하여 두 값이 동일할경우
+                    return target;                                                // target을 반환하고 함수종료
+                target = target.next;                                             // 아닐경우 target의 값을 다음 노드로바꿔줌
+            }
+            return null;                                                          // while문을 다돌았는데도 일치하는 값이 없으면 null반환
+        }
     }
 
     public class LinkedListNode<T>
