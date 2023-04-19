@@ -107,16 +107,6 @@ namespace _Datastructure
             count++;                                                              // 숫자 1 올려줌
         }
 
-        public void Remove(LinkedListNode<T> node)
-        {
-
-        }
-
-        public void Remove(T value)
-        {
-
-        }
-
         public LinkedListNode<T> Find(T value)                                    //Find 함수 만들어줌 비교해야할 value값을 매개변수로 받음.
         {
             EqualityComparer<T> comparer = EqualityComparer<T>.Default;           // 두값을 비교하기위한 비교클래스 인스턴스 생성.
@@ -129,6 +119,30 @@ namespace _Datastructure
             }
             return null;                                                          // while문을 다돌았는데도 일치하는 값이 없으면 null반환
         }
+        public void Remove(LinkedListNode<T> node)                                // Remove함수 구현 지워야할 노드값 받아옴
+        {
+            if(node == null)                                                      //노드가 null일때 예외발생
+                throw new ArgumentNullException();
+            if (node.list != this)                                                // 노드가 리스트내에 없을 때 예외발생
+                throw new InvalidOperationException();
+
+            if(node == tail)                                                      // 노드가 테일일경우 테일을 바꿔줌
+                tail = node.prev;
+            if (node.prev != null)                                                // 이전노드가 null이 아닐경우에 이전노드의next값을 null로 변경
+                node.prev.next = null;
+
+            if (node == head)                                                     // 노드가 헤드일경우 변경
+                head = node.next;
+            if (node.next !=null)                                                 // 이후 노드가 null이 아닐경우에 이후노드의prev값을 null로변경
+                node.next.prev = null;
+            count--;
+        }
+
+        public void Remove(T value)
+        {
+
+        }
+
     }
 
     public class LinkedListNode<T>
