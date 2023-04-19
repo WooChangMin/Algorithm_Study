@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "00.Algorithm", "00.Algorithm\00.Algorithm.csproj", "{5E06A625-4ED5-480C-8BFF-0FF03139B10A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "00.Algorithm", "00.Algorithm\00.Algorithm.csproj", "{5E06A625-4ED5-480C-8BFF-0FF03139B10A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.List", "01.List\01.List.csproj", "{48EAFC27-C48B-4980-A684-BCDAAC2B40ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01.List", "01.List\01.List.csproj", "{48EAFC27-C48B-4980-A684-BCDAAC2B40ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.LinkedList", "02.LinkedList\02.LinkedList.csproj", "{8F4323D6-E438-4777-9D3B-53742AEAEF43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{48EAFC27-C48B-4980-A684-BCDAAC2B40ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48EAFC27-C48B-4980-A684-BCDAAC2B40ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48EAFC27-C48B-4980-A684-BCDAAC2B40ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F4323D6-E438-4777-9D3B-53742AEAEF43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F4323D6-E438-4777-9D3B-53742AEAEF43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F4323D6-E438-4777-9D3B-53742AEAEF43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F4323D6-E438-4777-9D3B-53742AEAEF43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
