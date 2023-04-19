@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,7 +44,6 @@ namespace Datastructure1
         }
     }
 
-
     public class LinkedList<T>
     {
         private LinkedListNode<T> head;
@@ -78,15 +78,14 @@ namespace Datastructure1
                 head = newNode;
                 tail = newNode;
             }
-
             count++;
             return newNode;
         }
+
         public LinkedListNode<T> AddLast(T value)          //동일한 방식으로 AddLast구현
         {
             // 새노드 생성
             LinkedListNode<T> newNode = new LinkedListNode<T>(this, value);
-
             if (tail != null)
             {
                 newNode.prev = tail;
@@ -98,9 +97,59 @@ namespace Datastructure1
                 head = newNode;
                 tail = newNode;
             }
-
             count++;
             return newNode;
+        }
+
+        public void Remove(LinkedListNode<T> node)
+        {
+            
+            if (node.list != this)                               // 예외 : node가 linkedList에 포함된 노드가 아닌경우.
+                throw new InvalidOperationException();
+            if (node == null)                                    // 예외 : 지워야할 node가 null인 경우
+                throw new ArgumentNullException(nameof(node));
+
+            // 0. 지웠을 때 head나 tail이 변경되는 경우 적용
+            if (head == node)
+                head = node.next;
+            if (head == tail)
+                tail = node.prev;
+            
+            if (node.prev != null)
+                node.prev.next = node.next;
+            if (node.next != null)
+                node.next.prev = node.prev;
+
+            count--;
+        }
+        public bool Remove(T value)
+        {
+            LinkedListNode<T> findNode = Find(value);
+            if (findNode != null)
+            {
+                Remove(findNode);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public LinkedListNode<T> Find(T value)
+        {
+            LinkedListNode<T> target = head;
+            EqualityComparer<T> comparer = EqualityComparer<T>.Default;
+            
+            while(target != null)
+            {
+                if (comparer.Equals(value, target.Value))
+                    return target;
+                else
+                    target = target.next;
+            }
+
+            return null;
         }
     }
 }
