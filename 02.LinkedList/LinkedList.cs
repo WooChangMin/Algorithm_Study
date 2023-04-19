@@ -101,6 +101,35 @@ namespace Datastructure1
             return newNode;
         }
 
+        public LinkedListNode<T> AddBefore(LinkedListNode<T> node, T value)
+        {
+            if (node.list != this)
+                throw new InvalidOperationException();
+            if (node == null)
+                throw new ArgumentNullException(nameof(node));
+ 
+            // 1.새로운 노드 만들기
+            LinkedListNode<T> newNode = new LinkedListNode<T>(this, value);
+
+            //2. 연결구조 바꾸기
+            newNode.next = node;
+            newNode.prev = node.prev;
+            node.prev = newNode;
+
+            if (node.prev != null)
+            {
+                node.prev.next = newNode;
+            }
+            else
+            {
+                head = newNode;
+            }
+            
+            //3. 개수증가
+            count++;
+            return newNode;
+        }
+
         public void Remove(LinkedListNode<T> node)
         {
             
