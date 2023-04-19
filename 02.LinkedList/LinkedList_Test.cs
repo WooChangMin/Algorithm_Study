@@ -60,27 +60,51 @@ namespace _Datastructure
 
         public void AddBefore (LinkedListNode<T> node, T value)                   //AddBefore구현 뒤로갈 노드와 새로운 노드에 들어갈 값이 필요함
         {
-            LinkedListNode<T> newnode = new LinkedListNode<T>(this, value);       // 새노드를 만들어주고 이름 newnode
+            LinkedListNode<T> newNode = new LinkedListNode<T>(this, value);       // 새노드를 만들어주고 이름 newnode
 
-            if (node == null || newnode == null )                                 //새 노드가 null일경우 또는 기존의 노드가 null일경우 에러반환
+            if (node == null || newNode == null )                                 //새 노드가 null일경우 또는 기존의 노드가 null일경우 에러반환
                 throw new ArgumentNullException(nameof(node));
             if (node.list != this)                                                //해당노드가 리스트에 들어가있지않을경우 에러발생
                 throw new InvalidOperationException();
 
-            newnode.next = node;                                                  //위치정보값 변경
-            node.prev = newnode;
-            newnode.prev = node.prev;
+            newNode.next = node;                                                  //위치정보값 변경
+            node.prev = newNode;
+            newNode.prev = node.prev;
 
             if (node.prev == null)                                                //node가 헤드일경우 새로  head를 바꾸어주어야함
             {
-                head = newnode;
+                head = newNode;
             }
             else                                                                  //아닐경우 추가로 구현해주면됨
             {
-                node.prev.next = newnode;
+                node.prev.next = newNode;
             }
 
             count++;                                                              //count 상승시켜주고 종료
+        }
+
+        public void AddAfter(LinkedListNode<T> node, T value)                     // AddBefore 과 유사하게 AddAfter 구현
+        {
+            LinkedListNode<T> newNode = new LinkedListNode<T>(this, value);       // 새노드 생성
+
+            if (node == null || newNode == null)                                  // 예외처리구문 추가
+                throw new ArgumentNullException(nameof(node));
+            if (node.list != this)
+                throw new InvalidOperationException();
+
+            newNode.next = node.next;                                             // 노드의 연결 바꿔주고
+            newNode.prev = node;
+            node.next = newNode;
+
+            if (node == tail)                                                     // node가 tail일경우  newNode를 tail로바꿈
+            {
+                newNode = tail;
+            }
+            else
+            {
+                node.next.prev = newNode;
+            }
+            count++;                                                              // 숫자 1 올려줌
         }
     }
 
