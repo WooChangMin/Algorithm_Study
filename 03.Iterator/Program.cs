@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-namespace _03.Iterator
+using _DataStructure;
+namespace _DataStructure
 {
     internal class Program
     {
@@ -10,7 +11,7 @@ namespace _03.Iterator
 		 * 자료구조에 저장되어 있는 요소들을 순회하는 인터페이스
 		 ******************************************************/
 
-        void Iterator()
+        /*void Iterator()
         {
             // 대부분의 자료구조가 반복기를 지원함
             // 반복기를 이용한 기능을 구현할 경우, 그 기능은 대부분의 자료구조를 호환할 수 있음
@@ -37,7 +38,7 @@ namespace _03.Iterator
             foreach (int i in IterFunc()) { }
 
             // 반복기 직접조작
-            List<string> strings = new List<string>();
+            _Datastructure.List<string> strings = new List<string>();
             for (int i = 0; i < 5; i++) strings.Add(string.Format("{0}데이터", i));
 
             IEnumerator<string> iter = strings.GetEnumerator();
@@ -58,10 +59,11 @@ namespace _03.Iterator
             yield return 1;
             yield return 2;
             yield return 3;
-        }
+        }*/
 
         static void Main(string[] args)
         {
+            /*
             Iterator.List<int> list = new Iterator.List<int>();
             for (int i = 0; i < 5; i++) list.Add(i);
 
@@ -84,6 +86,21 @@ namespace _03.Iterator
             {
                 Console.WriteLine(linkedListIter.Current);
             }
+            */
+            /*
+            _DataStructure.List<int> list = new _DataStructure.List<int>();
+            for (int i = 0; i < 5; i++)
+            {
+                list.Add(i);
+            }
+            foreach(int i in list) Console.WriteLine(i);
+            */
+            _DataStructure.LinkedList<int> linkedList = new _DataStructure.LinkedList<int>();
+            for (int i = 0; i < 5; i++)
+            {
+                linkedList.AddLast(i);
+            }
+            foreach (int i in linkedList)  Console.WriteLine(i); 
         }
     }
 }

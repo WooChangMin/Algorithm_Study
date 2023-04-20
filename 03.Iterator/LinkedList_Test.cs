@@ -2,12 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03.Iterator
+namespace _DataStructure
 {
-    public class LinkedListNode<T> 
+    public class LinkedListNode<T>
     {
         internal LinkedList<T> list;
         internal LinkedListNode<T> prev;
@@ -190,37 +191,31 @@ namespace _03.Iterator
         {
             throw new NotImplementedException();
         }
-        public struct Enumerator : IEnumerable<T>
+
+        public struct Enumerator : IEnumerator
         {
-            private LinkedList<T> linkedList;
             private LinkedListNode<T> node;
+            private LinkedList<T> list;
             private T current;
-            internal Enumerator(LinkedList<T> linkedList)
+
+            public Enumerator(LinkedList<T> list)
             {
-                this.linkedList = linkedList;
-                this.node = linkedList.head;
+                this.list = list;
+                this.node = list.head;
                 this.current = default(T);
             }
-
             public T Current { get { return current; } }
 
-            //object IEnumerator.Current { get { return current; } }
-            public IEnumerator<T> GetEnumerator()
-            {
-                throw new NotImplementedException();
-            }
+            object IEnumerator.Current { get { return current; } }
 
-            IEnumerator IEnumerable.GetEnumerator()
-            {
-                throw new NotImplementedException();
-            }
+
             public void Dispose()
             {
-
             }
+
             public bool MoveNext()
             {
-                if(node != null)
+                if (node != null)
                 {
                     current = node.Value;
                     node = node.next;
@@ -232,9 +227,10 @@ namespace _03.Iterator
                     return false;
                 }
             }
+
             public void Reset()
             {
-                node = linkedList.head;
+                this.node = list.head;
                 current = default(T);
             }
         }
