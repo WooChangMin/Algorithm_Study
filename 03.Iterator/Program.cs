@@ -10,10 +10,7 @@ namespace _03.Iterator
 		 * 자료구조에 저장되어 있는 요소들을 순회하는 인터페이스
 		 ******************************************************/
 
-
-
-
-        static void Main(string[] args)
+        void Iterator()
         {
             // 대부분의 자료구조가 반복기를 지원함
             // 반복기를 이용한 기능을 구현할 경우, 그 기능은 대부분의 자료구조를 호환할 수 있음
@@ -39,16 +36,15 @@ namespace _03.Iterator
             foreach (KeyValuePair<int, int> i in dic) { }
             foreach (int i in IterFunc()) { }
 
-
-            // 반복기 직접 조작
+            // 반복기 직접조작
             List<string> strings = new List<string>();
-            for (int i = 0; i < 5; i++) strings.Add($"{i}데이터");
+            for (int i = 0; i < 5; i++) strings.Add(string.Format("{0}데이터", i));
 
-            IEnumerator<string > iter = strings.GetEnumerator();
+            IEnumerator<string> iter = strings.GetEnumerator();
             iter.MoveNext();
-            Console.WriteLine(iter.Current);
+            Console.WriteLine(iter.Current);    // output : 0데이터
             iter.MoveNext();
-            Console.WriteLine(iter.Current);
+            Console.WriteLine(iter.Current);    // output : 1데이터
 
             iter.Reset();
             while (iter.MoveNext())
@@ -62,6 +58,32 @@ namespace _03.Iterator
             yield return 1;
             yield return 2;
             yield return 3;
+        }
+
+        static void Main(string[] args)
+        {
+            Iterator.List<int> list = new Iterator.List<int>();
+            for (int i = 0; i < 5; i++) list.Add(i);
+
+            foreach (int i in list) Console.WriteLine(i);
+
+            IEnumerator<int> listIter = list.GetEnumerator();
+            while (listIter.MoveNext())
+            {
+                Console.WriteLine(listIter.Current);
+            }
+
+
+            Iterator.LinkedList<int> linkedList = new Iterator.LinkedList<int>();
+            for (int i = 0; i < 5; i++) linkedList.AddLast(i);
+
+            foreach (int i in linkedList) Console.WriteLine(i);
+
+            IEnumerator<int> linkedListIter = linkedList.GetEnumerator();
+            while (linkedListIter.MoveNext())
+            {
+                Console.WriteLine(linkedListIter.Current);
+            }
         }
     }
 }
