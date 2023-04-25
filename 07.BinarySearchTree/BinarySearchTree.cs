@@ -128,7 +128,7 @@ namespace DataStructure
                     return current;
                 }
             }
-            return current; 
+            return null; 
         }
 
         private void EraseNode(Node node)
