@@ -179,6 +179,20 @@ namespace DataStructure
             return;
         }
 
+        public void Print()
+        {
+            Print(root);
+        }
+
+        private void Print(Node node)                                      // 중위순회 구현
+        {
+            if (node.left != null) Print(node.left);
+            Console.WriteLine(node.item);
+            if (node.right != null) Print(node.right);
+        }
+
+ 
+
         class Node
         {
             internal T item;                                              // 담고있을 데이터 값
