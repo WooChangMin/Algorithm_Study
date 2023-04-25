@@ -76,6 +76,22 @@ namespace _DataStructure
             }
         }
 
+        public bool TryGetValue(T item, out T value)                                // 아이템이 주어졌을때 해당값을 반환하는 노드가있는지 찾는함수. 혹시나있으면 해당값 반환
+        {
+            Node findNode = FindNode(item);                                         // FindNode사용해서 구현
+            if (findNode == null)
+            {
+                value = default(T);
+                return false;
+            }
+            else
+            {
+                
+                value = findNode.item;
+                return true;
+            }
+        }
+
         private Node FindNode(T item)                                                // 특정item값이 주어졌을때 해당 item을 가지고있는 노드 반환
         {
             if (root == null)                                                       // root가 null일경우 뺼값이없음.
