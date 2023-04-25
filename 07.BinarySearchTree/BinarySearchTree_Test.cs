@@ -61,11 +61,42 @@ namespace _DataStructure
             }
         }
         
-        public void Remove()
+        public bool Remove(T item)                                                  // findNode와 Erase노드를 사용하여 Remove구현
         {
+            Node findNode = FindNode(item);                                         //FindNode의 값이 있을때 없을떄의 조건부 추가.
 
+            if (findNode == null)
+            {
+                return false;
+            }
+            else
+            {
+                EraseNode(findNode);
+                return true;
+            }
         }
 
+        private Node FindNode(T item)                                                // 특정item값이 주어졌을때 해당 item을 가지고있는 노드 반환
+        {
+            if (root == null)                                                       // root가 null일경우 뺼값이없음.
+            {
+                return null;
+            }
+            Node node = root;                                                       // 새로운탐색노드를 node로 새로만듬.
+            while (node != null)                                                    // node가 null이아닐때까지 반복.
+            {
+                if (item.CompareTo(node.item) > 0)                                  // 노드의 아이템과 아이템의 값을 비교해가면서내려감
+                {
+                    node = node.right;                                              // 해당값이 양수일경우 item이 더큰것이므로 노드의 오른쪽으로이동
+                }
+                else if (item.CompareTo(node.item) < 0)                             // 음수일경우 item이더작으므로 노드의 왼쪽으로 이동
+                {
+                    node = node.left;
+                }
+                return node;                                                        // 어느 if문에도 걸리지않을경우 찾은것이므로 return
+            }
+            return null;                                                            // node가 쭉내려가다가 null이 되어버린시점에서 node를 반환
+        }
         private void EraseNode(Node node)                                           //특정 노드를 지우는 함수 노드를 입력받는다. 이 노드는 차후 findNode에서 반환형식으로 사용
         {
             if (node.HasNot)                                                        // 노드에게 자식이 아무도 없을경우에 
