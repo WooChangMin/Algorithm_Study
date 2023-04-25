@@ -90,7 +90,7 @@ namespace DataStructure
         {
             Node findNode = FindNode(item);
 
-            if(FindNode == null)
+            if(findNode == null)
             {
                 outValue = default(T);
                 return false;
