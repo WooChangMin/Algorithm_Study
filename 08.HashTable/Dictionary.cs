@@ -124,10 +124,8 @@ namespace DataStructure
                     return true;
                 }
                 // 3-2 동일한 키값을 못찾고 비어있는 공간을 만났을때
-                else (table[index].state == Entry.State.None)
-                {
+                else
                     break;
-                }
 
 
                 index = ++index % table.Length;
