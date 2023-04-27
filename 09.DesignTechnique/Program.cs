@@ -1,4 +1,5 @@
-﻿namespace _09.DesignTechnique
+﻿using HanoiTest;
+namespace _09.DesignTechnique
 {
     internal class Program
     {
@@ -52,8 +53,8 @@
 
         static void Main(string[] args)
         {
-            HanoiTest.Program.Test1();
-
+            Program program = new Program();
+            HanoiTest.Program.Test();
             /*int nodeCount = 7;
             
             stick = new Stack<int>[3];
