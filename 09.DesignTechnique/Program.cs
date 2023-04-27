@@ -52,7 +52,7 @@
 
         static void Main(string[] args)
         {
-            int[,] result;
+            HanoiTest.Program.Test1();
 
             /*int nodeCount = 7;
             
