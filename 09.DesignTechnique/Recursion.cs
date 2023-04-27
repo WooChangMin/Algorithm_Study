@@ -32,5 +32,6 @@ namespace _09.DesignTechnique
                 return x * Factorial(x - 1);
         }
 
+
     }
 }

@@ -38,9 +38,23 @@
 
         public static Stack<int>[] stick;
 
+
+        /*public static int CountTime(params int[] task)
+        {
+            Array.Sort(task);
+
+            int result = 0;
+
+        }
+        */
+
+        
+
         static void Main(string[] args)
         {
-            int nodeCount = 7;
+            int[,] result;
+
+            /*int nodeCount = 7;
             
             stick = new Stack<int>[3];
             for (int i = 0; i < stick.Length; i++)
@@ -53,6 +67,7 @@
             }
 
             Move(nodeCount, 0, 2);
+            */
         }
     }
 }
