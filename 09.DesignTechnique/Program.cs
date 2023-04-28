@@ -55,8 +55,6 @@ namespace _09.DesignTechnique
 
         static void Main(string[] args)
         {
-            HanoiTest test = new HanoiTest();
-            test.Test();
 
             /*int nodeCount = 7;
             
