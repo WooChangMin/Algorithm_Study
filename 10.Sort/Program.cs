@@ -166,7 +166,6 @@
 
         static void Main(string[] args)
         {
-            Solution.Main2();
         }
 
         private static void Swap(IList<int> list, int left, int right)
