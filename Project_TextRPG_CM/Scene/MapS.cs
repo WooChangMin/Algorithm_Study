@@ -21,9 +21,23 @@ namespace Project_TextRPG_CM
 
         public override void Update()
         {
-            var input = Console.ReadKey();
+            Console.Write("스페이스바를 누르시면 마족의 마을로 출발합니다. :  ");
+            ConsoleKeyInfo key = Console.ReadKey();
+            switch (key.Key)
+            {
+                case ConsoleKey.Spacebar:
+                    game.Map();
+                    break;
+                default:
+                    Console.WriteLine("Y또는 N값을 눌러주세요!");
+                    Thread.Sleep(1500);
+                    break;
+            }
         }
-
+        public void GenerateMap()
+        {
+            Data.VillageMap();
+        }
         public void PrintMap()
         {
             StringBuilder sb = new StringBuilder();
@@ -35,19 +49,19 @@ namespace Project_TextRPG_CM
                     switch (Data.map[y, x])
                     {
                         case 0:
-                            Console.Write("　");
+                            Console.Write("※");
                             break;
                         case 1:
-                            Console.Write("■");
+                            Console.Write("＃");
                             break;
                         case 2:
-                            Console.Write("◇");
+                            Console.Write("＆");
                             break;
                         case 3:
-                            Console.Write("☞");
+                            Console.Write("＊");
                             break;
                         case 4:
-                            Console.Write("★");
+                            Console.Write("＠");
                             break;
                         default:
                             break;

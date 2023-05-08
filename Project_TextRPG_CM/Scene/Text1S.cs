@@ -46,7 +46,7 @@ namespace Project_TextRPG_CM
 
         public override void Update()
         {
-            Console.Write("스페이스바를 누르시면 마을로 출발합니다. :  ");
+            Console.Write("스페이스바를 누르시면 마족의 마을로 출발합니다. :  ");
             ConsoleKeyInfo key = Console.ReadKey();
             switch (key.Key)
             {

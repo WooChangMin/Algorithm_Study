@@ -90,7 +90,7 @@ namespace Project_TextRPG_CM
 
         public void GameStart()
         {
-            curScene = map;
+            curScene = text1;
         }
         public void GameClear()
         {
@@ -112,8 +112,9 @@ namespace Project_TextRPG_CM
             battle = new BattleS(this);
             inven = new InvetoryS(this);
             text1 = new Text1S(this);
+            map = new MapS(this);
 
-            curScene = main;
+            curScene = map;
         }
 
         public void Inven()
@@ -134,6 +135,7 @@ namespace Project_TextRPG_CM
         public void Map()
         {
             curScene = map;
+            map.GenerateMap();
         }
     }
 }
